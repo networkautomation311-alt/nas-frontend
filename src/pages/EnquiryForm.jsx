@@ -122,7 +122,7 @@ function EnquiryForm() {
       });
 
       const response = await axios.post(
-        "https://networkautomation.in/api/v1/enquiry/create",
+        "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/enquiry/create",
         data
       );
 

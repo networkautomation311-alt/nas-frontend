@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 const API =
-  "https://networkautomation.in/api/v1/department";
+  "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/department";
 
 const INITIAL_FORM = {
   departmentName: "",

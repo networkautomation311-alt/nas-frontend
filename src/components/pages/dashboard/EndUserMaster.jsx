@@ -9,16 +9,16 @@ import {
 } from "lucide-react";
 
 const API =
-  "https://networkautomation.in/api/v1/end-user-master";
+  "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/end-user-master";
 
 const CUSTOMER_API =
-  "https://networkautomation.in/api/v1/customer-master";
+  "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/customer-master";
 
 const DEPARTMENT_API =
-  "https://networkautomation.in/api/v1/department";
+  "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/department";
 
 const DESIGNATION_API =
-  "https://networkautomation.in/api/v1/designation-master";
+  "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/designation-master";
 
 const INITIAL_FORM = {
   endUserName: "",

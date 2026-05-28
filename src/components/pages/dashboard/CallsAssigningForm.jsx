@@ -19,7 +19,7 @@ function formatTime24to12(time24) {
 }
 
 // API endpoint for call assignments
-const API = "https://networkautomation.in/api/v1/calls-assigning";
+const API = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/calls-assigning";
 
 const CallsAssigningForm = () => {
   // =====================================
@@ -129,11 +129,11 @@ const CallsAssigningForm = () => {
       };
 
       await Promise.all([
-        fetchAndSet("https://networkautomation.in/api/v1/call-entry-form", setCalls),
-        fetchAndSet("https://networkautomation.in/api/v1/department", setDepartments),
-        fetchAndSet("https://networkautomation.in/api/v1/call-master", setCallTypes),
+        fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/call-entry-form", setCalls),
+        fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/department", setDepartments),
+        fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/call-master", setCallTypes),
         (async () => {
-          const res = await axios.get("https://networkautomation.in/api/v1/call-nature-master");
+          const res = await axios.get("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/call-nature-master");
           const data = Array.isArray(res.data)
             ? res.data
             : Array.isArray(res.data.data)
@@ -141,17 +141,17 @@ const CallsAssigningForm = () => {
               : [];
           setNatures(data);
         })(),
-        fetchAndSet("https://networkautomation.in/api/v1/instrument-master", setInstruments),
-        fetchAndSet("https://networkautomation.in/api/v1/problem", setProblems),
-        fetchAndSet("https://networkautomation.in/api/v1/employee-master", setEmployees),
-        // fetchAndSet("https://networkautomation.in/api/v1/status-master", setStatuses), // Removed status
-        fetchAndSet("https://networkautomation.in/api/v1/call-urgency", setPriorities),
-        fetchAndSet("https://networkautomation.in/api/v1/customer-master", setCustomers),
-        fetchAndSet("https://networkautomation.in/api/v1/end-user-master", setEndUsers),
-        fetchAndSet("https://networkautomation.in/api/v1/designation-master", setDesignations),
+        fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/instrument-master", setInstruments),
+        fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/problem", setProblems),
+        fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/employee-master", setEmployees),
+        // fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/status-master", setStatuses), // Removed status
+        fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/call-urgency", setPriorities),
+        fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/customer-master", setCustomers),
+        fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/end-user-master", setEndUsers),
+        fetchAndSet("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/designation-master", setDesignations),
         // Fetch technician names for "Assigned By" from Technician Master
         (async () => {
-          const res = await axios.get("https://networkautomation.in/api/v1/technician-master");
+          const res = await axios.get("https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/technician-master");
           // Use technicianName (or name) as option value
           let technicians =
             Array.isArray(res.data)
@@ -180,7 +180,7 @@ const CallsAssigningForm = () => {
     if (!callNoId) return;
     try {
       const res = await axios.get(
-        `https://networkautomation.in/api/v1/call-entry-form/${callNoId}`
+        `https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/call-entry-form/${callNoId}`
       );
       // data model: { data: { ... } } or just { ... }
       const data =

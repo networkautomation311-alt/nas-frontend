@@ -7,7 +7,7 @@ import {
   X,
 } from "lucide-react";
 
-const API = "http://localhost:5000/api/v1/instrument-master";
+const API = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/instrument-master";
 
 const INITIAL_FORM = {
   instrumentName: "",

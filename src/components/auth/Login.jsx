@@ -3,8 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import { FiLock } from "react-icons/fi"; // Import FiLock
+const API_BASE = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/auth";
 
-const API_BASE = "https://networkautomation.in/api/v1/auth";
 
 // Linear gradient style for text
 const auroraGradient = {

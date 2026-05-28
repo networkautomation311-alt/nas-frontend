@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Plus, Pencil, Trash2, X } from "lucide-react";
 
-const API = "https://networkautomation.in/api/v1/call-urgency";
+const API = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/call-urgency";
 
 const INITIAL_FORM = {
   urgencyLevel: "",

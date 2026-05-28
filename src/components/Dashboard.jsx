@@ -24,8 +24,8 @@ import {
 /* ---------------------------
   ✅ Configure your API URLs
 --------------------------- */
-const API_PROJECTS = "https://portfolio-backend-3nr9.onrender.com/api/v1/project";
-const API_BLOGS = "https://portfolio-backend-3nr9.onrender.com/api/v1/blog";
+const API_PROJECTS = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/project";
+const API_BLOGS = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/blog";
 
 /* ---------------------------
   UI Card configuration

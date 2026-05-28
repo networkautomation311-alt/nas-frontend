@@ -4,7 +4,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
 // API BASE - adjust per deployment/configuration
-const API_BASE = "http://localhost:5000/api/v1/auth";
+const API_BASE = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/auth";
 
 // These should match the backend auth-model.js schema
 const ROLES = ["Admin", "Owner", "Staff", "Accountant"];

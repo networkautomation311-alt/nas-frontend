@@ -20,7 +20,7 @@ function formatTime24to12(time24) {
   return `${h}:${m.padStart(2, "0")} ${ampm}`;
 }
 
-const API = "https://networkautomation.in/api/v1/call-entry-form";
+const API = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/call-entry-form";
 
 const CallEntryForm = () => {
   // ==== STATES ====

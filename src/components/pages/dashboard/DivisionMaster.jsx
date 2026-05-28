@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 // The API matches the intended endpoint
-const API = "https://networkautomation.in/api/v1/division-master";
+const API = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/division-master";
 
 // Matches schema: divisionName (required), remarks (optional), no divisionCode input
 const INITIAL_FORM = {

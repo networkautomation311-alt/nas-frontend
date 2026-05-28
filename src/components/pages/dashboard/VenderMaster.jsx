@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 // NOTE: The API endpoint may expect snake_case: consider 'vendor' instead of 'vender'
-const API_URL = "http://localhost:5000/api/v1/vender-master";
+const API_URL = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/vender-master";
 
 const initialVendor = {
   vendorName: "",

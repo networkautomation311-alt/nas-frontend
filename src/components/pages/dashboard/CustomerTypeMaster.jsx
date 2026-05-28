@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_URL = "https://networkautomation.in/api/v1/customer-type-master";
+const API_URL = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/customer-type-master";
 
 const initialCustomerType = {
   customerTypeName: "",
