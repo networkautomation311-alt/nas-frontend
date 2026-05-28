@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 // The API matches the intended endpoint
-const API = "https://nas-backend-7f28.onrender.com/api/v1/division-master";
+const API = "https://networkautomation.in/api/v1/division-master";
 
 // Matches schema: divisionName (required), remarks (optional), no divisionCode input
 const INITIAL_FORM = {

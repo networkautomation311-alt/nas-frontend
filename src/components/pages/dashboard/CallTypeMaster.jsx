@@ -7,7 +7,7 @@ import {
   X,
 } from "lucide-react";
 
-const API = "https://nas-backend-7f28.onrender.com/api/v1/call-type-master";
+const API = "https://networkautomation.in/api/v1/call-type-master";
 
 const INITIAL_FORM = {
   callTypeName: "",

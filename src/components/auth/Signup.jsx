@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const API_BASE = "https://nas-backend-7f28.onrender.com/api/v1/auth";
+const API_BASE = "https://networkautomation.in/api/v1/auth";
 
 export default function Signup() {
   const [form, setForm] = useState({ email: "", password: "" });

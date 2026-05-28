@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000/api/v1/enquiry";
+const API_BASE = "https://networkautomation.in/api/v1/enquiry";
 
 function EnquiryDashboard() {
   const [enquiries, setEnquiries] = useState([]);

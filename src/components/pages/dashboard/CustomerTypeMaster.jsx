@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_URL = "https://nas-backend-7f28.onrender.com/api/v1/customer-type-master";
+const API_URL = "https://networkautomation.in/api/v1/customer-type-master";
 
 const initialCustomerType = {
   customerTypeName: "",

@@ -122,7 +122,7 @@ function EnquiryForm() {
       });
 
       const response = await axios.post(
-        "http://localhost:5000/api/v1/enquiry/create",
+        "https://networkautomation.in/api/v1/enquiry/create",
         data
       );
 

@@ -5,7 +5,7 @@ import { Plus, Pencil, Trash2, X } from "lucide-react";
 /**
  * API endpoint for Call Master management.
  */
-const API = "https://nas-backend-7f28.onrender.com/api/v1/call-master";
+const API = "https://networkautomation.in/api/v1/call-master";
 
 /**
  * Initial form structure.

@@ -20,7 +20,7 @@ function formatTime24to12(time24) {
   return `${h}:${m.padStart(2, "0")} ${ampm}`;
 }
 
-const API = "https://nas-backend-7f28.onrender.com/api/v1/call-entry-form";
+const API = "https://networkautomation.in/api/v1/call-entry-form";
 
 const CallEntryForm = () => {
   // ==== STATES ====
@@ -83,12 +83,12 @@ const CallEntryForm = () => {
         urgencyRes,
         problemRes,
       ] = await Promise.all([
-        axios.get("https://nas-backend-7f28.onrender.com/api/v1/customer-master"),
-        axios.get("https://nas-backend-7f28.onrender.com/api/v1/customer-type-master"),
-        axios.get("https://nas-backend-7f28.onrender.com/api/v1/department"),
-        axios.get("https://nas-backend-7f28.onrender.com/api/v1/call-master"),
-        axios.get("https://nas-backend-7f28.onrender.com/api/v1/call-urgency"),
-        axios.get("https://nas-backend-7f28.onrender.com/api/v1/problem"),
+        axios.get("https://networkautomation.in/api/v1/customer-master"),
+        axios.get("https://networkautomation.in/api/v1/customer-type-master"),
+        axios.get("https://networkautomation.in/api/v1/department"),
+        axios.get("https://networkautomation.in/api/v1/call-master"),
+        axios.get("https://networkautomation.in/api/v1/call-urgency"),
+        axios.get("https://networkautomation.in/api/v1/problem"),
       ]);
 
       setCustomers(Array.isArray(customerRes.data) ? customerRes.data : customerRes.data.data || []);

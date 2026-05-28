@@ -12,10 +12,10 @@ import {
 // =====================================
 
 const API =
-  "https://nas-backend-7f28.onrender.com/api/v1/customer-master";
+  "https://networkautomation.in/api/v1/customer-master";
 
 const SUPPORT_API =
-  "https://nas-backend-7f28.onrender.com/api/v1/support-period-master";
+  "https://networkautomation.in/api/v1/support-period-master";
 
 // =====================================
 // INITIAL FORM

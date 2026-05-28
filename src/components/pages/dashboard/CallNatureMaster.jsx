@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 const API =
-  "https://nas-backend-7f28.onrender.com/api/v1/call-nature-master";
+  "https://networkautomation.in/api/v1/call-nature-master";
 
 const INITIAL_FORM = {
   callNatureName: "",
