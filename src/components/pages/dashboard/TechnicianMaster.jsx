@@ -1,0 +1,274 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+import {
+  Plus,
+  Pencil,
+  Trash2,
+  X,
+} from "lucide-react";
+
+const API = "http://localhost:5000/api/v1/technician-master";
+
+const INITIAL_FORM = {
+  technicianName: "",
+  contactNo: "",
+  email: "",
+  remark: "",
+};
+
+export default function TechnicianMaster() {
+  const [data, setData] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const [editId, setEditId] = useState(null);
+
+  const [formData, setFormData] = useState(INITIAL_FORM);
+
+  // =====================================
+  // HANDLE CHANGE
+  // =====================================
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // =====================================
+  // FETCH DATA
+  // =====================================
+
+  const fetchTechnicianList = async () => {
+    try {
+      const res = await axios.get(API);
+      setData(res.data.data || []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTechnicianList();
+  }, []);
+
+  // =====================================
+  // CREATE / UPDATE
+  // =====================================
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+
+      if (editId) {
+        await axios.put(
+          `${API}/${editId}`,
+          formData
+        );
+      } else {
+        await axios.post(
+          API,
+          formData
+        );
+      }
+
+      setOpen(false);
+      setEditId(null);
+      setFormData(INITIAL_FORM);
+
+      fetchTechnicianList();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // =====================================
+  // EDIT
+  // =====================================
+
+  const handleEdit = (item) => {
+    setEditId(item._id);
+
+    setFormData({
+      technicianName: item.technicianName || "",
+      contactNo: item.contactNo || "",
+      email: item.email || "",
+      remark: item.remark || "",
+    });
+
+    setOpen(true);
+  };
+
+  // =====================================
+  // DELETE
+  // =====================================
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`${API}/${id}`);
+      fetchTechnicianList();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div className="p-5">
+      {/* HEADER */}
+
+      <div className="flex items-center justify-between mb-5">
+        <h1 className="text-3xl font-bold">
+          Technician Master
+        </h1>
+
+        <button
+          onClick={() => {
+            setOpen(true);
+            setEditId(null);
+            setFormData(INITIAL_FORM);
+          }}
+          className="bg-black text-white px-4 py-2 rounded-lg flex items-center gap-2"
+        >
+          <Plus size={18} />
+          Add Technician
+        </button>
+      </div>
+
+      {/* TABLE */}
+      <div className="overflow-auto rounded-xl border">
+        <table className="w-full">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="p-3 text-left">Code</th>
+              <th className="p-3 text-left">Technician Name</th>
+              <th className="p-3 text-left">Contact No</th>
+              <th className="p-3 text-left">Email</th>
+              <th className="p-3 text-left">Remark</th>
+              <th className="p-3 text-center">Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {data.map((item) => (
+              <tr key={item._id} className="border-t">
+                <td className="p-3">{item.technicianCode}</td>
+                <td className="p-3">{item.technicianName}</td>
+                <td className="p-3">{item.contactNo}</td>
+                <td className="p-3">{item.email}</td>
+                <td className="p-3">{item.remark}</td>
+                <td className="p-3">
+                  <div className="flex items-center justify-center gap-3">
+                    <button
+                      onClick={() => handleEdit(item)}
+                      className="text-blue-600"
+                    >
+                      <Pencil size={18} />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(item._id)}
+                      className="text-red-600"
+                    >
+                      <Trash2 size={18} />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+
+            {data.length === 0 && (
+              <tr>
+                <td colSpan={6} className="text-center p-5">
+                  No Data Found
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {/* POPUP */}
+      {open && (
+        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-xl rounded-2xl p-6 relative">
+            {/* CLOSE */}
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute top-4 right-4"
+            >
+              <X />
+            </button>
+
+            <h2 className="text-2xl font-bold mb-5">
+              {editId ? "Update Technician" : "Create Technician"}
+            </h2>
+
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 gap-4">
+                {/* TECHNICIAN NAME */}
+                <input
+                  type="text"
+                  name="technicianName"
+                  value={formData.technicianName}
+                  onChange={handleChange}
+                  placeholder="Technician Name"
+                  className="border rounded-lg px-4 py-3"
+                  required
+                />
+
+                {/* CONTACT NO */}
+                <input
+                  type="text"
+                  name="contactNo"
+                  value={formData.contactNo}
+                  onChange={handleChange}
+                  placeholder="Contact No"
+                  className="border rounded-lg px-4 py-3"
+                />
+
+                {/* EMAIL */}
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  className="border rounded-lg px-4 py-3"
+                />
+
+                {/* REMARK */}
+                <textarea
+                  rows={4}
+                  name="remark"
+                  value={formData.remark}
+                  onChange={handleChange}
+                  placeholder="Remark"
+                  className="border rounded-lg px-4 py-3 resize-none"
+                />
+              </div>
+
+              {/* BUTTON */}
+              <div className="flex justify-end mt-5">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="bg-black text-white px-6 py-3 rounded-lg"
+                >
+                  {loading
+                    ? "Saving..."
+                    : editId
+                    ? "Update"
+                    : "Save"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
