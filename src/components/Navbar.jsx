@@ -759,10 +759,18 @@ const Navbar = () => {
                 {/* Enquiry Now Button - desktop */}
                 <Link
                   to="/pages/enquiry-form"
-                  className="ml-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-red-600 to-red-400 text-white text-sm font-semibold shadow-md hover:scale-105 hover:shadow-lg transition-transform duration-200 animate-stagger-fade-in"
+                  className="ml-2 px-3 py-0.5 rounded-full bg-gradient-to-r from-red-600 to-red-400 text-white text-sm font-semibold shadow-md hover:scale-105 hover:shadow-lg transition-transform duration-200 animate-stagger-fade-in"
                   style={{ animationDelay: "1s" }}
                 >
                   Enquiry Now
+                </Link>
+                {/* Login Button - desktop (added after Enquiry Now) */}
+                <Link
+                  to="/login"
+                  className="ml-2 px-3 py-0.5 rounded-full border border-red-500 text-red-600 text-sm font-semibold shadow-md hover:bg-red-50 transition-transform duration-200 animate-stagger-fade-in"
+                  style={{ animationDelay: "1.1s" }}
+                >
+                  Login
                 </Link>
               </div>
             </div>
@@ -1188,11 +1196,20 @@ const Navbar = () => {
             {/* Enquiry Now Button - mobile */}
             <Link
               to="/pages/enquiry-form"
-              className="block w-full mt-2 px-3 py-1.5 rounded-full bg-white text-red-600 text-sm font-semibold shadow-md text-center hover:scale-105 hover:shadow-lg transition-transform duration-200"
+              className="block w-full mt-2 px-3 py-0.5 rounded-full bg-white text-red-600 text-sm font-semibold shadow-md text-center hover:scale-105 hover:shadow-lg transition-transform duration-200"
               style={{ animationDelay: "1s" }}
               onClick={() => setMobileMenuOpen(false)}
             >
               Enquiry Now
+            </Link>
+            {/* Login Button - mobile (added after enquiry) */}
+            <Link
+              to="/login"
+              className="block w-full mt-2 px-3 py-0.5 rounded-full border border-red-500 text-red-600 text-sm font-semibold shadow-md text-center hover:bg-red-50 transition-transform duration-200"
+              style={{ animationDelay: "1.1s" }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Login
             </Link>
           </div>
         </div>
