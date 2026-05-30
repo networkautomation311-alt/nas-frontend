@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE = "https://nas-backend-7f28.onrender.com/api/v1/callslip";
+const API_BASE = "https://networkautomation-in-234510.hostingersite.com/api/v1/callslip";
 
 export default function SetPassword() {
   const [form, setForm] = useState({ email: "", password: "" });

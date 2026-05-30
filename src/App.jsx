@@ -108,6 +108,10 @@ import AllService from "./components/pages/dashboard/AllService";
 import CallEntryForm from "./components/pages/dashboard/CallEntryForm";
 // CallEntryForm import (frontend usage; e.g., for API integration helpers or context if exists)
 import CallsAssigningForm from "./components/pages/dashboard/CallsAssigningForm";
+// Plan To Action import (frontend usage; e.g., for API integration helpers or context if exists)
+import PlanToAction from "./components/pages/dashboard/PlanToAction";
+// Cross Check Form import (frontend usage; e.g., for API integration helpers or context if exists)
+import CrossCheckForm from "./components/pages/dashboard/CrossCheckform";
 // CallEntryForm import (frontend usage; e.g., for API integration helpers or context if exists)
 // import DailyCallsSheet from "./components/pages/dashboard/DailyCallsSheet";
 function AppContent() {
@@ -616,6 +620,26 @@ function AppContent() {
             <ProtectedRoute>
               <DashboardLayout>
                 <CallsAssigningForm/>
+              </DashboardLayout>
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/dashboard/plan-to-action"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout>
+                <PlanToAction/>
+              </DashboardLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/cross-check-form"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout>
+                <CrossCheckForm/>
               </DashboardLayout>
             </ProtectedRoute>
           }

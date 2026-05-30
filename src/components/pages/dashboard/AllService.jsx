@@ -3,13 +3,25 @@ import { useNavigate } from "react-router-dom";
 import { MdOutlineEngineering } from "react-icons/md";
 import { FaLayerGroup } from "react-icons/fa";
 import { TbListDetails } from "react-icons/tb";
+import { GiProgression } from "react-icons/gi";
+import { FaRegCheckCircle } from "react-icons/fa";
 
-// NOTE: This is modeled after MasterManagement.jsx structure but focuses on "Call Entry Form" as the service
+// NOTE: This is modeled after MasterManagement.jsx structure but focuses on "Call Entry Form", "Plan To Action", and "Cross Check Form" as services
 const serviceEntities = [
   {
     title: "Call Entry Form",
     to: "/dashboard/call-entry-form",
     icon: <MdOutlineEngineering className="text-red-500 text-[1.7rem]" />,
+  },
+  {
+    title: "Plan To Action",
+    to: "/dashboard/plan-to-action",
+    icon: <GiProgression className="text-red-500 text-[1.7rem]" />,
+  },
+  {
+    title: "Cross Check Form",
+    to: "/dashboard/cross-check-form",
+    icon: <FaRegCheckCircle className="text-red-500 text-[1.7rem]" />,
   },
 ];
 

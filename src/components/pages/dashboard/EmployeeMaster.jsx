@@ -9,16 +9,16 @@ import {
 } from "lucide-react";
 
 const API =
-  "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/employee-master";
+  "http://localhost:5000/api/v1/employee-master";
 
 const DIVISION_API =
-  "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/division-master";
+  "http://localhost:5000/api/v1/division-master";
 
 const DEPARTMENT_API =
-  "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/department";
+  "http://localhost:5000/api/v1/department";
 
 const DESIGNATION_API =
-  "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/designation-master";
+  "http://localhost:5000/api/v1/designation-master";
 
 const INITIAL_FORM = {
   title: "Mr.",
@@ -292,193 +292,316 @@ export default function EmployeeMaster() {
               </button>
             </div>
 
+            {/* -- Labels Added, each field has a label describing its name -- */}
             <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4">
-              <select
-                name="title"
-                value={form.title}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              >
-                <option>Mr.</option>
-                <option>Ms.</option>
-                <option>Mrs.</option>
-              </select>
+              {/* Title */}
+              <div className="flex flex-col">
+                <label htmlFor="title" className="mb-1 font-medium">
+                  Title
+                </label>
+                <select
+                  id="title"
+                  name="title"
+                  value={form.title}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                >
+                  <option>Mr.</option>
+                  <option>Ms.</option>
+                  <option>Mrs.</option>
+                </select>
+              </div>
+              
+              {/* Employee Name */}
+              <div className="flex flex-col">
+                <label htmlFor="employeeName" className="mb-1 font-medium">
+                  Employee Name
+                </label>
+                <input
+                  id="employeeName"
+                  type="text"
+                  name="employeeName"
+                  placeholder="Employee Name"
+                  value={form.employeeName}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                  required
+                />
+              </div>
 
-              <input
-                type="text"
-                name="employeeName"
-                placeholder="Employee Name"
-                value={form.employeeName}
-                onChange={handleChange}
-                className="border p-2 rounded"
-                required
-              />
+              {/* Father/Husband Name */}
+              <div className="flex flex-col">
+                <label htmlFor="fatherOrHusbandName" className="mb-1 font-medium">
+                  Father/Husband Name
+                </label>
+                <input
+                  id="fatherOrHusbandName"
+                  type="text"
+                  name="fatherOrHusbandName"
+                  placeholder="Father/Husband Name"
+                  value={form.fatherOrHusbandName}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
-              <input
-                type="text"
-                name="fatherOrHusbandName"
-                placeholder="Father/Husband Name"
-                value={form.fatherOrHusbandName}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
+              {/* Division */}
+              <div className="flex flex-col">
+                <label htmlFor="division" className="mb-1 font-medium">
+                  Division
+                </label>
+                <select
+                  id="division"
+                  name="division"
+                  value={form.division}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                  required
+                >
+                  <option value="">Select Division</option>
+                  {divisionList.map((item) => (
+                    <option key={item._id} value={item._id}>
+                      {item.divisionName}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-              {/* DIVISION */}
-              <select
-                name="division"
-                value={form.division}
-                onChange={handleChange}
-                className="border p-2 rounded"
-                required
-              >
-                <option value="">Select Division</option>
-                {divisionList.map((item) => (
-                  <option key={item._id} value={item._id}>
-                    {item.divisionName}
-                  </option>
-                ))}
-              </select>
+              {/* Department */}
+              <div className="flex flex-col">
+                <label htmlFor="department" className="mb-1 font-medium">
+                  Department
+                </label>
+                <select
+                  id="department"
+                  name="department"
+                  value={form.department}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                  required
+                >
+                  <option value="">Select Department</option>
+                  {departmentList.length === 0 && (
+                    <option disabled>No Department Found</option>
+                  )}
+                  {departmentList.map((item) => (
+                    <option key={item._id} value={item._id}>
+                      {item.departmentName}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-              {/* DEPARTMENT */}
-              <select
-                name="department"
-                value={form.department}
-                onChange={handleChange}
-                className="border p-2 rounded"
-                required
-              >
-                <option value="">Select Department</option>
-                {departmentList.length === 0 && (
-                  <option disabled>No Department Found</option>
-                )}
-                {departmentList.map((item) => (
-                  <option key={item._id} value={item._id}>
-                    {/* Show departmentName directly */}
-                    {item.departmentName}
-                  </option>
-                ))}
-              </select>
+              {/* Designation */}
+              <div className="flex flex-col">
+                <label htmlFor="designation" className="mb-1 font-medium">
+                  Designation
+                </label>
+                <select
+                  id="designation"
+                  name="designation"
+                  value={form.designation}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                  required
+                >
+                  <option value="">Select Designation</option>
+                  {designationList.map((item) => (
+                    <option key={item._id} value={item._id}>
+                      {item.designationName}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-              {/* DESIGNATION */}
-              <select
-                name="designation"
-                value={form.designation}
-                onChange={handleChange}
-                className="border p-2 rounded"
-                required
-              >
-                <option value="">Select Designation</option>
-                {designationList.map((item) => (
-                  <option key={item._id} value={item._id}>
-                    {item.designationName}
-                  </option>
-                ))}
-              </select>
+              {/* DOB */}
+              <div className="flex flex-col">
+                <label htmlFor="dob" className="mb-1 font-medium">
+                  Date of Birth
+                </label>
+                <input
+                  id="dob"
+                  type="date"
+                  name="dob"
+                  value={form.dob}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
-              <input
-                type="date"
-                name="dob"
-                value={form.dob}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
+              {/* Education */}
+              <div className="flex flex-col">
+                <label htmlFor="education" className="mb-1 font-medium">
+                  Education
+                </label>
+                <input
+                  id="education"
+                  type="text"
+                  name="education"
+                  placeholder="Education"
+                  value={form.education}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
-              <input
-                type="text"
-                name="education"
-                placeholder="Education"
-                value={form.education}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
+              {/* Mobile */}
+              <div className="flex flex-col">
+                <label htmlFor="phoneMobile" className="mb-1 font-medium">
+                  Mobile
+                </label>
+                <input
+                  id="phoneMobile"
+                  type="text"
+                  name="phoneMobile"
+                  placeholder="Mobile"
+                  value={form.phoneMobile}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
-              <input
-                type="text"
-                name="phoneMobile"
-                placeholder="Mobile"
-                value={form.phoneMobile}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
+              {/* Email */}
+              <div className="flex flex-col">
+                <label htmlFor="emailId" className="mb-1 font-medium">
+                  Email
+                </label>
+                <input
+                  id="emailId"
+                  type="email"
+                  name="emailId"
+                  placeholder="Email"
+                  value={form.emailId}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
-              <input
-                type="email"
-                name="emailId"
-                placeholder="Email"
-                value={form.emailId}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
+              {/* Date of Joining */}
+              <div className="flex flex-col">
+                <label htmlFor="dateOfJoining" className="mb-1 font-medium">
+                  Date of Joining
+                </label>
+                <input
+                  id="dateOfJoining"
+                  type="date"
+                  name="dateOfJoining"
+                  value={form.dateOfJoining}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
-              <input
-                type="date"
-                name="dateOfJoining"
-                value={form.dateOfJoining}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
+              {/* Gender */}
+              <div className="flex flex-col">
+                <label htmlFor="gender" className="mb-1 font-medium">
+                  Gender
+                </label>
+                <select
+                  id="gender"
+                  name="gender"
+                  value={form.gender}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                >
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
 
-              <select
-                name="gender"
-                value={form.gender}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              >
-                <option>Male</option>
-                <option>Female</option>
-              </select>
+              {/* Marital Status */}
+              <div className="flex flex-col">
+                <label htmlFor="maritalStatus" className="mb-1 font-medium">
+                  Marital Status
+                </label>
+                <select
+                  id="maritalStatus"
+                  name="maritalStatus"
+                  value={form.maritalStatus}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                >
+                  <option>Single</option>
+                  <option>Married</option>
+                </select>
+              </div>
 
-              <select
-                name="maritalStatus"
-                value={form.maritalStatus}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              >
-                <option>Single</option>
-                <option>Married</option>
-              </select>
+              {/* Wedding Anniversary Date */}
+              <div className="flex flex-col">
+                <label htmlFor="weddingAnniversaryDate" className="mb-1 font-medium">
+                  Wedding Anniversary Date
+                </label>
+                <input
+                  id="weddingAnniversaryDate"
+                  type="date"
+                  name="weddingAnniversaryDate"
+                  value={form.weddingAnniversaryDate}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
-              <input
-                type="date"
-                name="weddingAnniversaryDate"
-                value={form.weddingAnniversaryDate}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
+              {/* No Of Childs */}
+              <div className="flex flex-col">
+                <label htmlFor="noOfChilds" className="mb-1 font-medium">
+                  No Of Childs
+                </label>
+                <input
+                  id="noOfChilds"
+                  type="number"
+                  name="noOfChilds"
+                  placeholder="No Of Childs"
+                  value={form.noOfChilds}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
-              <input
-                type="number"
-                name="noOfChilds"
-                placeholder="No Of Childs"
-                value={form.noOfChilds}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
+              {/* Work Experience */}
+              <div className="flex flex-col">
+                <label htmlFor="workExperience" className="mb-1 font-medium">
+                  Work Experience
+                </label>
+                <input
+                  id="workExperience"
+                  type="text"
+                  name="workExperience"
+                  placeholder="Work Experience"
+                  value={form.workExperience}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
-              <input
-                type="text"
-                name="workExperience"
-                placeholder="Work Experience"
-                value={form.workExperience}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
+              {/* Permanent Address */}
+              <div className="flex flex-col">
+                <label htmlFor="permanentAddress" className="mb-1 font-medium">
+                  Permanent Address
+                </label>
+                <textarea
+                  id="permanentAddress"
+                  name="permanentAddress"
+                  placeholder="Permanent Address"
+                  value={form.permanentAddress}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
-              <textarea
-                name="permanentAddress"
-                placeholder="Permanent Address"
-                value={form.permanentAddress}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
-
-              <textarea
-                name="presentAddress"
-                placeholder="Present Address"
-                value={form.presentAddress}
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
+              {/* Present Address */}
+              <div className="flex flex-col">
+                <label htmlFor="presentAddress" className="mb-1 font-medium">
+                  Present Address
+                </label>
+                <textarea
+                  id="presentAddress"
+                  name="presentAddress"
+                  placeholder="Present Address"
+                  value={form.presentAddress}
+                  onChange={handleChange}
+                  className="border p-2 rounded"
+                />
+              </div>
 
               <div className="col-span-3 flex justify-end">
                 <button

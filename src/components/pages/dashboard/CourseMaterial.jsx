@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
-const API_BASE = "https://portfolio-backend-3nr9.onrender.com/api/v1/notes";
+const API_BASE = "https://nas-backend.onrender.com/api/v1/notes";
 
 // Mapping for displaying file size in a human readable format
 function humanFileSize(sizeKB) {

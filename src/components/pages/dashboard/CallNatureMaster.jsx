@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 const API =
-  "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/call-nature-master";
+  "http://localhost:5000/api/v1/call-nature-master";
 
 const INITIAL_FORM = {
   callNatureName: "",

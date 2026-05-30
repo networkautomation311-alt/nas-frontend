@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000/api/v1/income";
+const API_BASE = "https://nas-backend.onrender.com/api/v1/income";
 
 // Field mapping for model (nas-backend/src/models/income-model.js)
 const incomeFormInitialState = {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000/api/v1/calendar";
+const API_BASE = "https://nas-backend.onrender.com/api/v1/calendar";
 
 const Calendar = () => {
   const [events, setEvents] = useState([]);

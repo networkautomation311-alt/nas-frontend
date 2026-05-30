@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
-const API_BASE = "https://portfolio-backend-3nr9.onrender.com/api/v1/blog";
+const API_BASE = "https://nas-backend.onrender.com/api/v1/blog";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);

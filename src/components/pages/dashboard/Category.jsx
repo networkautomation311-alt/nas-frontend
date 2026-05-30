@@ -3,7 +3,7 @@ import axios from "axios";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
-const API_BASE = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/category";
+const API_BASE = "https://nas-backend.onrender.com/api/v1/category";
 
 const Category = () => {
 

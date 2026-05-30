@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const API_BASE =
-  "http://localhost:5000/api/v1/client-history";
+  "https://nas-backend.onrender.com/api/v1/client-history";
 
 const ClientHistory = () => {
   const [histories, setHistories] = useState([]);

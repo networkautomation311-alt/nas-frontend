@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE = "https://networkautomation.in/api/v1/auth";
+const API_BASE = "https://nas-backend.onrender.com/api/v1/auth";
 
 export default function Verify2FA() {
   const [token, setToken] = useState("");

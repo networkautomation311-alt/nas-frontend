@@ -7,7 +7,7 @@ import {
   X,
 } from "lucide-react";
 
-const API = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/status-master";
+const API = "https://networkautomation-in-234510.hostingersite.com/api/v1/status-master";
 
 const INITIAL_FORM = {
   statusName: "",

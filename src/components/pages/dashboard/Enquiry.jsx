@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_BASE = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/enquiry";
+const API_BASE = "https://nas-backend.onrender.com/api/v1/enquiry";
 
 function EnquiryDashboard() {
   const [enquiries, setEnquiries] = useState([]);

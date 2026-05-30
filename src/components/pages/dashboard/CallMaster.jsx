@@ -5,7 +5,7 @@ import { Plus, Pencil, Trash2, X } from "lucide-react";
 /**
  * API endpoint for Call Master management.
  */
-const API = "https://networkautomation-in-234510.hostingersite.com/?utm_source=chatgpt.com/api/v1/call-master";
+const API = "http://localhost:5000/api/v1/call-master";
 
 /**
  * Initial form structure.
