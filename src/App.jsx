@@ -64,7 +64,7 @@ import ExpenseCategory from "./components/pages/dashboard/ExpenseCategory";
 import InvoiceModal from "./components/pages/dashboard/InvoiceModal";
 // StatusMaster import (frontend usage; e.g., for API integration helpers or context if exists)
 import StatusMaster from "./components/pages/dashboard/StatusMaster";
-// CallMaster import (frontend usage; e.g., for API integration helpers or context if exists)
+// TechnicianMaster import (frontend usage; e.g., for API integration helpers or context if exists)
 import TechnicianMaster from "./components/pages/dashboard/TechnicianMaster";
 // CallMaster import (frontend usage; e.g., for API integration helpers or context if exists)
 import CallMaster from "./components/pages/dashboard/CallMaster";
